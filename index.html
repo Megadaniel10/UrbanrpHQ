@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban RP HQ</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Personale -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Container principale dell'app -->
+    <div class="app-container">
+        
+        <!-- Menu di Navigazione Laterale -->
+        <nav class="sidebar">
+            <div class="brand">
+                <img src="fsafas.png" alt="Urban RP Logo" class="logo">
+                <p class="subtitle">Creato da Nebula s.r.l</p>
+            </div>
+            <ul class="nav-links">
+                <li><button class="nav-btn active" data-target="home"><i class="fas fa-info-circle"></i> Chi siamo?</button></li>
+                <li><button class="nav-btn discord-btn" data-target="discord" onclick="window.open('https://discord.gg/3g3bRnYXz7', '_blank')"><i class="fab fa-discord"></i> Entra nel server!</button></li>
+                <li><button class="nav-btn" data-target="utilities"><i class="fas fa-tools"></i> Utilità</button></li>
+            </ul>
+        </nav>
+
+        <!-- Area Contenuti -->
+        <main class="content-area">
+            
+            <!-- SEZIONE: Chi siamo? -->
+            <section id="home" class="page-section active">
+                <div class="header-section">
+                    <h1>Benvenuti su Urban RP</h1>
+                    <p class="section-desc">Il server Life RP su Minecraft Java 1.16.5 che stravolge le regole del gioco.</p>
+                </div>
+
+                <!-- Carosello Immagini -->
+                <div class="carousel-container">
+                    <img id="carousel-img" src="image_80ee68.jpg" alt="Urban RP Showcase">
+                    <div class="carousel-controls">
+                        <button id="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                        <button id="next-slide"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="text-content">
+                    <p>Fondato 2 anni fa su Minecraft Java 1.16.5, Urban RP è un server Life RP che stravolge le regole del gioco. Se sei stanco dei soliti server dove passi le ore a "grindare" da solo, sei nel posto giusto.</p>
+                    <p>Abbiamo eliminato i processi noiosi e ripetitivi: su Urban RP, ogni tuo passo avanti dipende dalle interazioni con gli altri cittadini. Inoltre, il server non è aperto 24/7: una scelta mirata per concentrare l'utenza e garantirti un'esperienza di gioco dove la città è sempre viva e ricca di eventi.</p>
+                    
+                    <h3>Costruisci la tua vita</h3>
+                    <p>Puoi scegliere la sicurezza di un lavoro statale o da dipendente privato, ma la vera libertà è nel business. Hai un'idea? Puoi aprire la tua impresa, acquistare i materiali dalle altre compagnie e costruire mattone dopo mattone il tuo edificio e il tuo impero economico.</p>
+                    
+                    <h3>Un'immersione totale</h3>
+                    <p>Tutto questo è inserito in un contesto iper-realistico che ricalca fedelmente la vera burocrazia italiana. Dovrai fare i conti con l'apertura della P.IVA, la gestione delle tasse, l'ottenimento delle patenti e la firma di documenti reali.</p>
+                    
+                    <p><strong>Siamo una community affiatata e manteniamo una cerchia ristretta proprio per offrire un Roleplay immersivo e di altissimo livello. Non perdere la tua occasione, il tuo posto in città ti aspetta!</strong></p>
+                </div>
+            </section>
+
+            <!-- SEZIONE: Utilità -->
+            <section id="utilities" class="page-section">
+                <div class="utility-layout">
+                    <!-- Sottomenu Utilità -->
+                    <div class="utility-sidebar">
+                        <h3>Strumenti</h3>
+                        <button class="tool-btn active" data-tool="cassa"><i class="fas fa-cash-register"></i> Cassa</button>
+                        <button class="tool-btn" data-tool="id"><i class="fas fa-id-card"></i> Carta d'Identità</button>
+                        <button class="tool-btn" data-tool="patente"><i class="fas fa-car"></i> Patente</button>
+                        <button class="tool-btn" data-tool="tessera"><i class="fas fa-notes-medical"></i> Tessera Sanitaria</button>
+                        <button class="tool-btn" data-tool="assegno"><i class="fas fa-money-check-alt"></i> Assegno</button>
+                    </div>
+
+                    <!-- Area di lavoro Utilità -->
+                    <div class="utility-workspace">
+                        
+                        <!-- Tool 1: Registratore di Cassa -->
+                        <div id="tool-cassa" class="tool-panel active">
+                            <h2>Registratore di Cassa</h2>
+                            <div class="cassa-grid">
+                                <!-- Colonna Sinistra: Aggiunta Oggetti -->
+                                <div class="cassa-left">
+                                    <div class="form-group row">
+                                        <input type="text" id="item-name" placeholder="Nome Oggetto">
+                                        <input type="number" id="item-price" placeholder="Prezzo (€)" step="0.01">
+                                        <button id="add-item-btn" class="action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <div class="cart-list">
+                                        <h4>Carrello (<span id="cart-count">0</span>/9)</h4>
+                                        <ul id="cart-items"></ul>
+                                        <div class="cart-total">Somma: <span id="cart-sum">0.00</span>€</div>
+                                    </div>
+                                </div>
+                                <!-- Colonna Destra: Generazione Scontrino -->
+                                <div class="cassa-right">
+                                    <div class="form-group">
+                                        <label>Nome Negozio</label>
+                                        <input type="text" id="shop-name" placeholder="Es. Nebula">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>IVA (22% automatico)</label>
+                                        <input type="text" id="shop-iva" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Data</label>
+                                        <input type="text" id="shop-date" readonly>
+                                    </div>
+                                    <button class="generate-btn" onclick="generateScontrino()">Genera Comando Scontrino</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tool 2: Carta d'identità -->
+                        <div id="tool-id" class="tool-panel">
+                            <h2>Carta d'Identità</h2>
+                            <p class="warning-text"><i class="fas fa-exclamation-triangle"></i> ATTENZIONE: Questo tool può essere utilizzato solo dalle persone con i gradi giusti (es. Lavoratori del Tribunale).</p>
+                            <div class="form-grid">
+                                <div class="form-group"><label>Nome</label><input type="text" id="id-nome"></div>
+                                <div class="form-group"><label>Cognome</label><input type="text" id="id-cognome"></div>
+                                <div class="form-group"><label>Data di nascita</label><input type="text" id="id-nascita" placeholder="GG/MM/AAAA"></div>
+                                <div class="form-group"><label>Nazionalità</label><input type="text" id="id-naz"></div>
+                                <div class="form-group"><label>Sesso</label><input type="text" id="id-sesso" placeholder="M/F"></div>
+                                <div class="form-group"><label>Emissione</label><input type="text" id="id-emiss" placeholder="GG/MM/AAAA"></div>
+                                <div class="form-group"><label>Scadenza</label><input type="text" id="id-scad" placeholder="GG/MM/AAAA"></div>
+                            </div>
+                            <button class="generate-btn mt-1" onclick="generateId()">Genera Comando</button>
+                        </div>
+
+                        <!-- Tool 3: Patente -->
+                        <div id="tool-patente" class="tool-panel">
+                            <h2>Patente di Guida</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label>Nome</label><input type="text" id="pat-nome"></div>
+                                <div class="form-group"><label>Cognome</label><input type="text" id="pat-cognome"></div>
+                                <div class="form-group"><label>Data di nascita</label><input type="text" id="pat-nascita" placeholder="GG/MM/AAAA"></div>
+                                <div class="form-group"><label>Emissione</label><input type="text" id="pat-emiss" placeholder="GG/MM/AAAA"></div>
+                                <div class="form-group"><label>Scadenza</label><input type="text" id="pat-scad" placeholder="GG/MM/AAAA"></div>
+                                <div class="form-group"><label>Categoria</label><input type="text" id="pat-cat" placeholder="Es. B"></div>
+                            </div>
+                            <button class="generate-btn mt-1" onclick="generatePatente()">Genera Comando</button>
+                        </div>
+
+                        <!-- Tool 4: Tessera Sanitaria -->
+                        <div id="tool-tessera" class="tool-panel">
+                            <h2>Tessera Sanitaria</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label>Codice Fiscale</label><input type="text" id="ts-cf"></div>
+                                <div class="form-group"><label>Nome</label><input type="text" id="ts-nome"></div>
+                                <div class="form-group"><label>Cognome</label><input type="text" id="ts-cognome"></div>
+                                <div class="form-group"><label>Nazionalità</label><input type="text" id="ts-naz"></div>
+                                <div class="form-group"><label>Sesso</label><input type="text" id="ts-sesso" placeholder="M/F"></div>
+                                <div class="form-group"><label>Data di nascita</label><input type="text" id="ts-nascita" placeholder="GG/MM/AAAA"></div>
+                                <div class="form-group"><label>Emissione</label><input type="text" id="ts-emiss" placeholder="GG/MM/AAAA"></div>
+                                <div class="form-group"><label>Scadenza</label><input type="text" id="ts-scad" placeholder="GG/MM/AAAA"></div>
+                            </div>
+                            <button class="generate-btn mt-1" onclick="generateTessera()">Genera Comando</button>
+                        </div>
+
+                        <!-- Tool 5: Assegno -->
+                        <div id="tool-assegno" class="tool-panel">
+                            <h2>Assegno Bancario</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label>Banca</label><input type="text" id="ass-banca"></div>
+                                <div class="form-group"><label>Data</label><input type="text" id="ass-data" placeholder="GG/MM/AAAA"></div>
+                                <div class="form-group"><label>Importo</label><input type="number" id="ass-importo" placeholder="0.00"></div>
+                                <div class="form-group"><label>Nome Intestatario</label><input type="text" id="ass-nomeint"></div>
+                                <div class="form-group"><label>Cognome Intestatario</label><input type="text" id="ass-cogint"></div>
+                                <div class="form-group"><label>Nome Firmatario</label><input type="text" id="ass-nomefirm"></div>
+                                <div class="form-group"><label>Cognome Firmatario</label><input type="text" id="ass-cogfirm"></div>
+                            </div>
+                            <button class="generate-btn mt-1" onclick="generateAssegno()">Genera Comando</button>
+                        </div>
+
+                        <!-- Box Output Comandi (Condiviso) -->
+                        <div class="output-box" id="output-container" style="display: none;">
+                            <label>Comando Generato:</label>
+                            <div class="output-row">
+                                <input type="text" id="generated-command" readonly>
+                                <button onclick="copyCommand()" id="copy-btn"><i class="fas fa-copy"></i> Copia</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Bottone Tema -->
+    <button id="theme-toggle" class="theme-btn" title="Cambia Tema">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Script Personale -->
+    <script src="script.js"></script>
+</body>
+</html>
