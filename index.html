@@ -124,7 +124,7 @@
 
                 <!-- Immagine Storica CASTRO_1966.png -->
                 <div class="history-hero-image">
-                    <img src="CASTRO_1966.png" alt="Castro 1966" onerror="this.alt='Inserisci CASTRO_1966.png nella cartella principale del server'">
+                    <img src="CASTRO_1966.png" alt="Castro 1966" onerror="this.alt='Errore: Assicurati che il file si chiami esattamente CASTRO_1966.png (rispetta maiuscole e minuscole)'">
                     <span class="image-caption"><i class="fas fa-camera-retro"></i> Archivio Storico Municipale: Castro (1966)</span>
                 </div>
 
@@ -145,33 +145,35 @@
             <section id="staff" class="page-section">
                 <div class="header-section">
                     <h1>Staff</h1>
-                    <p class="section-desc">Incontra il team dietro Urban RP</p>
+                    <p class="section-desc">Incontra il team dietro Urban RP. Passa il mouse sopra di noi!</p>
                 </div>
 
                 <div class="staff-container">
-                    <!-- Assicurati che l'immagine si chiami staff.jpg su GitHub -->
-                    <img src="staff.jpg" alt="Urban RP Staff" class="staff-main-img">
-                    
-                    <!-- Hitbox trasparenti che attivano le didascalie -->
-                    <!-- Federico (Piccione a sinistra) -->
-                    <div class="hover-zone" style="top: 35%; left: 81%; width: 15%; height: 50%;" data-tooltip="Federico"></div>
-                    
-                    <!-- Stefano (Sottosopra a sinistra) -->
-                    <div class="hover-zone" style="top: 10%; left: 63%; width: 14%; height: 50%;" data-tooltip="Stefano"></div>
-                    
-                    <!-- Diego (Maglia nera/blu) -->
-                    <div class="hover-zone" style="top: 35%; left: 52%; width: 11%; height: 45%;" data-tooltip="Diego"></div>
-                    
-                    <!-- Daniel (Pantaloni rossi) -->
-                    <div class="hover-zone" style="top: 40%; left: 41%; width: 11%; height: 45%;" data-tooltip="Daniel"></div>
-                    
-                    <!-- Francesco (Maglia bianca con TNT) -->
-                    <div class="hover-zone" style="top: 42%; left: 34%; width: 7%; height: 25%;" data-tooltip="Francesco"></div>
-                    
-                    <!-- Marzio (Tutto a destra, capelli rossi) -->
-                    <div class="hover-zone" style="top: 42%; left: 23%; width: 6%; height: 20%;" data-tooltip="Marzio"></div>
+                    <div class="staff-image-wrapper">
+                        <!-- Immagine Staff PNG -->
+                        <img src="staff.png" alt="Urban RP Staff" class="staff-main-img" onerror="this.alt='Errore: Assicurati che il file si chiami esattamente staff.png'">
+                        
+                        <!-- Hitbox trasparenti relative -->
+                        <!-- Federico (Piccione a destra) -->
+                        <div class="hover-zone" style="top: 35%; left: 81%; width: 15%; height: 50%;" data-tooltip="Federico"></div>
+                        
+                        <!-- Stefano (Sottosopra a destra) -->
+                        <div class="hover-zone" style="top: 10%; left: 63%; width: 14%; height: 50%;" data-tooltip="Stefano"></div>
+                        
+                        <!-- Diego (Maglia nera/blu) -->
+                        <div class="hover-zone" style="top: 35%; left: 52%; width: 11%; height: 45%;" data-tooltip="Diego"></div>
+                        
+                        <!-- Daniel (Pantaloni rossi) -->
+                        <div class="hover-zone" style="top: 40%; left: 41%; width: 11%; height: 45%;" data-tooltip="Daniel"></div>
+                        
+                        <!-- Francesco (Maglia bianca con TNT) -->
+                        <div class="hover-zone" style="top: 42%; left: 34%; width: 7%; height: 25%;" data-tooltip="Francesco"></div>
+                        
+                        <!-- Marzio (Capelli rossi, tutto a sinistra) -->
+                        <div class="hover-zone" style="top: 42%; left: 23%; width: 6%; height: 20%;" data-tooltip="Marzio"></div>
+                    </div>
 
-                    <!-- Tooltip Box (Nascosto di base, appare al passaggio del mouse) -->
+                    <!-- Tooltip Box (Nascosto di base) -->
                     <div id="staff-tooltip" class="staff-tooltip hidden">
                         <h4 id="tooltip-name">Nome</h4>
                         <p id="tooltip-desc">Descrizione</p>
