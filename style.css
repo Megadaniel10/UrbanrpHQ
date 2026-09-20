@@ -401,20 +401,31 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     border-radius: 12px;
-    overflow: hidden;
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    background-color: var(--frame-bg);
+    border: 1px solid var(--border-color);
+}
+
+.staff-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Ratio 16:9 fisso per stabilizzare le hitbox */
+    overflow: hidden;
 }
 
 .staff-main-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     object-fit: cover;
 }
 
 .hover-zone {
     position: absolute;
     cursor: pointer;
+    z-index: 10;
     /* transition: background-color 0.2s; /* Scommentare per testare hitbox in fase di debug */
     /* background-color: rgba(255, 0, 0, 0.3); */
 }
@@ -428,6 +439,7 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     pointer-events: none;
     z-index: 100;
+    width: max-content;
     max-width: 250px;
     transform: translate(-50%, -110%);
     opacity: 0;
