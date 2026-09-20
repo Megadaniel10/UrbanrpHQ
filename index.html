@@ -34,13 +34,12 @@
                     </button>
                 </li>
                 <li>
-                    <button class="nav-btn discord-btn" onclick="window.open('https://discord.gg/3g3bRnYXz7', '_blank')">
+                    <button class="nav-btn discord-btn" id="btn-discord">
                         <i class="fab fa-discord"></i> Entra nel server!
                     </button>
                 </li>
                 <li>
-                    <!-- Tasto NebulaStocks Blu Scuro -->
-                    <button class="nav-btn nebulastocks-btn" onclick="window.open('https://nebula-stock.vercel.app/', '_blank')">
+                    <button class="nav-btn nebulastocks-btn" id="btn-nebulastocks">
                         <i class="fas fa-arrow-trend-up"></i> NebulaStocks
                     </button>
                 </li>
@@ -86,7 +85,8 @@
                         <h3><i class="fas fa-landmark"></i> Scopri la Storia di Castro</h3>
                         <p>Dalle origini come borgo marinaro negli anni '60 alla metropoli moderna con tutti i suoi quartieri.</p>
                     </div>
-                    <button class="nav-to-history-btn" onclick="navigateToSection('storia-castro')">
+                    <!-- SOSTITUITO ONCLICK CON ID -->
+                    <button id="btn-leggi-storia" class="nav-to-history-btn">
                         Leggi la Storia <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
@@ -109,7 +109,8 @@
             <section id="storia-castro" class="page-section">
                 <div class="header-section flex-header">
                     <div>
-                        <button class="back-btn" onclick="navigateToSection('home')">
+                        <!-- SOSTITUITO ONCLICK CON ID -->
+                        <button id="btn-torna-home" class="back-btn">
                             <i class="fas fa-arrow-left"></i> Torna a Chi siamo
                         </button>
                         <h1>Storia di Castro</h1>
