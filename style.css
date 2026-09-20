@@ -9,9 +9,11 @@
     --input-bg: #ffffff;
     --card-bg: #ffffff;
     --discord-color: #5865F2;
-    --nebulastocks-color: #0c1c38; /* Blu Scuro */
+    --nebulastocks-color: #0c1c38;
     --warning-color: #dc3545;
     --frame-bg: #f1f3f5;
+    --tooltip-bg: rgba(255, 255, 255, 0.95);
+    --tooltip-border: #e9ecef;
 }
 
 /* Variabili Tema Scuro */
@@ -26,6 +28,8 @@ body.dark-mode {
     --card-bg: #1e2124;
     --nebulastocks-color: #0a172e;
     --frame-bg: #1a1c22;
+    --tooltip-bg: rgba(30, 33, 36, 0.95);
+    --tooltip-border: #2e3238;
 }
 
 * {
@@ -204,7 +208,7 @@ body {
 .carousel-container {
     position: relative;
     width: 100%;
-    height: 520px; /* Altezza maggiorata */
+    height: 520px;
     border-radius: 14px;
     overflow: hidden;
     margin-bottom: 2rem;
@@ -226,7 +230,7 @@ body {
     max-height: 100%;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* NON TAGLIA LE IMMAGINI */
+    object-fit: contain;
     transition: opacity 0.35s ease-in-out;
 }
 
@@ -262,7 +266,6 @@ body {
     transform: scale(1.08);
 }
 
-/* Tasto Fullscreen */
 .carousel-fullscreen-btn {
     position: absolute;
     bottom: 15px;
@@ -389,7 +392,68 @@ body {
     margin-top: 1.5rem;
 }
 
-/* Utilità */
+/* =========================================
+   SEZIONE STAFF - IMMAGINE INTERATTIVA
+========================================== */
+.staff-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.staff-main-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.hover-zone {
+    position: absolute;
+    cursor: pointer;
+    /* transition: background-color 0.2s; /* Scommentare per testare hitbox in fase di debug */
+    /* background-color: rgba(255, 0, 0, 0.3); */
+}
+
+.staff-tooltip {
+    position: absolute;
+    background-color: var(--tooltip-bg);
+    border: 1px solid var(--tooltip-border);
+    padding: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    pointer-events: none;
+    z-index: 100;
+    max-width: 250px;
+    transform: translate(-50%, -110%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.staff-tooltip.visible {
+    opacity: 1;
+}
+
+.staff-tooltip h4 {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+}
+
+.staff-tooltip p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+
+/* =========================================
+   UTILITIES
+========================================== */
 .utility-layout {
     display: flex;
     gap: 2rem;
