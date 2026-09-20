@@ -48,6 +48,11 @@
                         <i class="fas fa-tools"></i> Utilità
                     </button>
                 </li>
+                <li>
+                    <button class="nav-btn" data-target="staff">
+                        <i class="fas fa-users"></i> Staff
+                    </button>
+                </li>
             </ul>
         </nav>
 
@@ -85,7 +90,7 @@
                         <h3><i class="fas fa-landmark"></i> Scopri la Storia di Castro</h3>
                         <p>Dalle origini come borgo marinaro negli anni '60 alla metropoli moderna con tutti i suoi quartieri.</p>
                     </div>
-                    <!-- SOSTITUITO ONCLICK CON ID -->
+                    <!-- Bottone per Storia di Castro -->
                     <button id="btn-leggi-storia" class="nav-to-history-btn">
                         Leggi la Storia <i class="fas fa-arrow-right"></i>
                     </button>
@@ -109,7 +114,6 @@
             <section id="storia-castro" class="page-section">
                 <div class="header-section flex-header">
                     <div>
-                        <!-- SOSTITUITO ONCLICK CON ID -->
                         <button id="btn-torna-home" class="back-btn">
                             <i class="fas fa-arrow-left"></i> Torna a Chi siamo
                         </button>
@@ -134,6 +138,44 @@
                     <p>
                         L'espansione è poi proseguita con la zona delle villette, oggi completata e appartenente a Centocelle, e con la zona ricca di ville dietro al tribunale, Orfea. Un processo che non si è mai fermato e che continua ancora oggi, con l'avanzamento di Centocelle e la nascita del nuovo quartiere Valente, sorto nell'ex zona boschiva dietro la questura.
                     </p>
+                </div>
+            </section>
+
+            <!-- SEZIONE: Staff -->
+            <section id="staff" class="page-section">
+                <div class="header-section">
+                    <h1>Staff</h1>
+                    <p class="section-desc">Incontra il team dietro Urban RP</p>
+                </div>
+
+                <div class="staff-container">
+                    <!-- Assicurati che l'immagine si chiami staff.jpg su GitHub -->
+                    <img src="staff.jpg" alt="Urban RP Staff" class="staff-main-img">
+                    
+                    <!-- Hitbox trasparenti che attivano le didascalie -->
+                    <!-- Federico (Piccione a sinistra) -->
+                    <div class="hover-zone" style="top: 35%; left: 81%; width: 15%; height: 50%;" data-tooltip="Federico"></div>
+                    
+                    <!-- Stefano (Sottosopra a sinistra) -->
+                    <div class="hover-zone" style="top: 10%; left: 63%; width: 14%; height: 50%;" data-tooltip="Stefano"></div>
+                    
+                    <!-- Diego (Maglia nera/blu) -->
+                    <div class="hover-zone" style="top: 35%; left: 52%; width: 11%; height: 45%;" data-tooltip="Diego"></div>
+                    
+                    <!-- Daniel (Pantaloni rossi) -->
+                    <div class="hover-zone" style="top: 40%; left: 41%; width: 11%; height: 45%;" data-tooltip="Daniel"></div>
+                    
+                    <!-- Francesco (Maglia bianca con TNT) -->
+                    <div class="hover-zone" style="top: 42%; left: 34%; width: 7%; height: 25%;" data-tooltip="Francesco"></div>
+                    
+                    <!-- Marzio (Tutto a destra, capelli rossi) -->
+                    <div class="hover-zone" style="top: 42%; left: 23%; width: 6%; height: 20%;" data-tooltip="Marzio"></div>
+
+                    <!-- Tooltip Box (Nascosto di base, appare al passaggio del mouse) -->
+                    <div id="staff-tooltip" class="staff-tooltip hidden">
+                        <h4 id="tooltip-name">Nome</h4>
+                        <p id="tooltip-desc">Descrizione</p>
+                    </div>
                 </div>
             </section>
 
@@ -182,7 +224,7 @@
                                         <label>Data</label>
                                         <input type="text" id="shop-date" readonly>
                                     </div>
-                                    <button class="generate-btn" onclick="generateScontrino()">Genera Comando Scontrino</button>
+                                    <button class="generate-btn" id="btn-genera-scontrino">Genera Comando Scontrino</button>
                                 </div>
                             </div>
                         </div>
@@ -200,7 +242,7 @@
                                 <div class="form-group"><label>Emissione (args_5)</label><input type="text" id="id-emiss" placeholder="GG/MM/AAAA"></div>
                                 <div class="form-group"><label>Scadenza (args_6)</label><input type="text" id="id-scad" placeholder="GG/MM/AAAA"></div>
                             </div>
-                            <button class="generate-btn mt-1" onclick="generateId()">Genera Comando</button>
+                            <button class="generate-btn mt-1" id="btn-genera-id">Genera Comando</button>
                         </div>
 
                         <!-- Tool 3: Patente -->
@@ -214,7 +256,7 @@
                                 <div class="form-group"><label>Scadenza (args_4)</label><input type="text" id="pat-scad" placeholder="GG/MM/AAAA"></div>
                                 <div class="form-group"><label>Categoria (args_5)</label><input type="text" id="pat-cat" placeholder="Es. B"></div>
                             </div>
-                            <button class="generate-btn mt-1" onclick="generatePatente()">Genera Comando</button>
+                            <button class="generate-btn mt-1" id="btn-genera-patente">Genera Comando</button>
                         </div>
 
                         <!-- Tool 4: Tessera Sanitaria -->
@@ -230,7 +272,7 @@
                                 <div class="form-group"><label>Emissione (args_6)</label><input type="text" id="ts-emiss" placeholder="GG/MM/AAAA"></div>
                                 <div class="form-group"><label>Scadenza (args_7)</label><input type="text" id="ts-scad" placeholder="GG/MM/AAAA"></div>
                             </div>
-                            <button class="generate-btn mt-1" onclick="generateTessera()">Genera Comando</button>
+                            <button class="generate-btn mt-1" id="btn-genera-tessera">Genera Comando</button>
                         </div>
 
                         <!-- Tool 5: Assegno -->
@@ -245,7 +287,7 @@
                                 <div class="form-group"><label>Nome Firmatario (args_5)</label><input type="text" id="ass-nomefirm" placeholder="Luigi"></div>
                                 <div class="form-group"><label>Cognome Firmatario (args_6)</label><input type="text" id="ass-cogfirm" placeholder="Bianchi"></div>
                             </div>
-                            <button class="generate-btn mt-1" onclick="generateAssegno()">Genera Comando</button>
+                            <button class="generate-btn mt-1" id="btn-genera-assegno">Genera Comando</button>
                         </div>
 
                         <!-- Box Output Comandi Condiviso -->
@@ -253,7 +295,7 @@
                             <label>Comando Generato:</label>
                             <div class="output-row">
                                 <input type="text" id="generated-command" readonly>
-                                <button onclick="copyCommand()" id="copy-btn"><i class="fas fa-copy"></i> Copia</button>
+                                <button id="copy-btn"><i class="fas fa-copy"></i> Copia</button>
                             </div>
                         </div>
 
